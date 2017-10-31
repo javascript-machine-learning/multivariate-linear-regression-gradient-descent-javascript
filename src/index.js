@@ -1,41 +1,36 @@
 import math from 'mathjs';
 import csvToMatrix  from 'csv-to-array-matrix';
 
-csvToMatrix('./src/data.csv', init, ';');
+import {
+  getDimension,
+  getSubset,
+  getMeanByVector,
+  getStdByVector,
+  setVector,
+} from './util';
 
-const getSubset = (matrix, selector) =>
-  math.eval(`matrix[${selector}]`, { matrix });
-
-const setVector = (matrix, index, vector) =>
-  matrix.map((row, rowKey) => row.map((column, columnKey) => index === columnKey ? vector[rowKey][0] : column));
-
-const getMeanByVector = (matrix) => {
-  const n = getDimension(matrix, 2);
-  const vectors = Array(n).fill().map((_, i) => getSubset(matrix, `:, ${i + 1}`));
-  return vectors.reduce((result, vector) => result.concat(math.mean(vector)), []);
-};
-
-const getStdByVector = (matrix) => {
-  const n = getDimension(matrix, 2);
-  const vectors = Array(n).fill().map((_, i) => getSubset(matrix, `:, ${i + 1}`));
-  return vectors.reduce((result, vector) => result.concat(math.std(vector)), []);
-};
-
-const getDimension = (matrix, dimension) =>
-  dimension === 1
-    ? matrix.length
-    : matrix[0].length
+csvToMatrix('./src/data.csv', init);
 
 function init(matrix) {
+
   // Part 0: Preparation
+  console.log('Part 0: Preparation ...\n');
 
   let X = getSubset(matrix, ':, 1:2');
   let y = getSubset(matrix, ':, 3');
   let m = getDimension(y, 1);
 
   // Part 1: Feature Normalization
+  console.log('Part 1: Feature Normalization ...\n');
 
   let { XNorm, mu, sigma } = featureNormalize(X);
+
+  console.log('XNorm: ', XNorm);
+  console.log('\n');
+  console.log('Mean: ', mu);
+  console.log('\n');
+  console.log('Std: ', sigma);
+  console.log('\n');
 }
 
 function featureNormalize(X) {

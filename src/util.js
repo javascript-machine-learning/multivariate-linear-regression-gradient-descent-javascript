@@ -3,6 +3,27 @@ import math from 'mathjs';
 export const getSubset = (matrix, selector) =>
   math.eval(`matrix[${selector}]`, { matrix });
 
+export const pushVector = (matrix, index, vector) => {
+  const extendedMatrix = math
+    .ones([
+      getDimension(matrix, 1),
+      getDimension(matrix, 2) + 1
+    ])
+    .valueOf();
+
+  return extendedMatrix.map((row, rowKey) => row.map((column, columnKey) => {
+    if (index === columnKey) {
+      return vector[rowKey][0];
+    }
+    if (columnKey < index) {
+      return matrix[rowKey][columnKey];
+    }
+    if (columnKey > index) {
+      return matrix[rowKey][columnKey - 1];
+    }
+  }));
+};
+
 export const setVector = (matrix, index, vector) =>
   matrix.map((row, rowKey) => row.map((column, columnKey) => index === columnKey ? vector[rowKey][0] : column));
 

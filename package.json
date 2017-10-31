@@ -1,0 +1,23 @@
+{
+  "name": "node-babel-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js --exec babel-node --presets es2015,stage-2"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "csv-to-array-matrix": "^0.1.1",
+    "fast-csv": "^2.4.1",
+    "mathjs": "^3.16.5"
+  }
+}

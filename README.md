@@ -1,18 +1,12 @@
-# Simple Node Server with Babel
+# Multivariate Linear Regression with Gradient Descent
 
-An easy way to get started with JavaScript on the command line.
+This example project demonstrates how the [gradient descent](http://en.wikipedia.org/wiki/Gradient_descent) algorithm may be used to solve a [multivariate linear regression](http://en.wikipedia.org/wiki/Linear_regression) problem.
 
-## Requirements
-
-* [node & npm](https://nodejs.org/en/)
-* [git](https://www.robinwieruch.de/git-essential-commands/)
+[Read more about it here.](https://www.robinwieruch.de/multivariate-linear-regression-gradient-descent-javascript/)
 
 ## Installation
 
-* `git clone git@github.com:rwieruch/node-babel-server.git`
-* `cd node-babel-server`
+* `git clone git@github.com:rwieruch/multivariate-linear-regression-gradient-descent-javascript.git`
+* `cd multivariate-linear-regression-gradient-descent-javascript`
 * `npm install`
 * `npm start`
-
-Adjust your Babel presets in *package.json* if you like to add or remove future JavaScript ES features.
-# multivariate-linear-regression-gradient-descent-javascript

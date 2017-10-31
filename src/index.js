@@ -27,11 +27,11 @@ function init(matrix) {
 
   let { XNorm, mu, sigma } = featureNormalize(X);
 
-  console.log('XNorm: ', XNorm);
+  console.log('X normalized: ', XNorm);
   console.log('\n');
-  console.log('Mean: ', mu);
+  console.log('mean: ', mu);
   console.log('\n');
-  console.log('Std: ', sigma);
+  console.log('std: ', sigma);
   console.log('\n');
 
   // Part 2: Gradient Descent
@@ -46,7 +46,8 @@ function init(matrix) {
   let theta = math.zeros(3, 1).valueOf();
   theta = gradientDescentMulti(XNorm, y, theta, ALPHA, ITERATIONS);
 
-  console.log(theta);
+  console.log('theta: ', theta);
+  console.log('\n');
 }
 
 function featureNormalize(X) {

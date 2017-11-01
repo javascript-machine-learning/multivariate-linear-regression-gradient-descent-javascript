@@ -1,5 +1,5 @@
 {
-  "name": "node-babel-server",
+  "name": "multivariate-linear-regression-gradient-descent-javascript",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "csv-to-array-matrix": "^0.1.1",
-    "mathjs": "^3.16.5"
+    "mathjs": "^3.16.5",
+    "mathjs-util": "^0.1.0"
   }
 }

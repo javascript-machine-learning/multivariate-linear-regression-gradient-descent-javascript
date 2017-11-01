@@ -6,7 +6,7 @@ import {
   getMeanAsRowVector,
   getStdAsRowVector,
   pushVector,
-} from './util';
+} from 'mathjs-util';
 
 csvToMatrix('./src/data.csv', init);
 

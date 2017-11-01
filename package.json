@@ -17,7 +17,6 @@
   },
   "dependencies": {
     "csv-to-array-matrix": "^0.1.1",
-    "fast-csv": "^2.4.1",
     "mathjs": "^3.16.5"
   }
 }

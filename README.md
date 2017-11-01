@@ -6,7 +6,7 @@ This example project demonstrates how the [gradient descent](http://en.wikipedia
 
 ## Installation
 
-* `git clone git@github.com:rwieruch/multivariate-linear-regression-gradient-descent-javascript.git`
+* `git clone git@github.com:javascript-machine-learning/multivariate-linear-regression-gradient-descent-javascript.git`
 * `cd multivariate-linear-regression-gradient-descent-javascript`
 * `npm install`
 * `npm start`

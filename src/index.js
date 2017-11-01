@@ -51,6 +51,17 @@ function init(matrix) {
 
   console.log('theta: ', theta);
   console.log('\n');
+
+  // Part 3: Predict Price of 1650 square meter and 3 bedroom house
+  console.log('Part 3: Price Prediction ...\n');
+
+  let normalizedHouseVector = [1, ((1650 - mu[0]) / sigma[0]), ((3 - mu[1]) / sigma[1])];
+  let price = math.eval('normalizedHouseVector * theta', {
+    normalizedHouseVector,
+    theta,
+  });
+
+  console.log('Predicted price for a 1650 square meter and 3 bedroom house: ', price);
 }
 
 function featureNormalize(X) {

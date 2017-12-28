@@ -2,10 +2,8 @@ import math from 'mathjs';
 import csvToMatrix  from 'csv-to-array-matrix';
 
 import {
-  getDimensionSize,
   getMeanAsRowVector,
   getStdAsRowVector,
-  pushVector,
 } from 'mathjs-util';
 
 csvToMatrix('./src/data.csv', init);
@@ -22,7 +20,7 @@ function init(matrix) {
     matrix,
   });
 
-  let m = getDimensionSize(y, 1);
+  let m = y.length;
 
   // Part 1: Feature Normalization
   console.log('Part 1: Feature Normalization ...\n');
@@ -40,7 +38,7 @@ function init(matrix) {
   console.log('Part 2: Gradient Descent ...\n');
 
   // Add Intercept Term
-  XNorm = pushVector(XNorm, 0, math.ones([m, 1]).valueOf());
+  XNorm = X = math.concat(math.ones([m, 1]).valueOf(), XNorm);
 
   const ALPHA = 0.01;
   const ITERATIONS = 400;
@@ -68,7 +66,7 @@ function featureNormalize(X) {
   const sigma = getStdAsRowVector(X); // alternative: range
 
   // n = features
-  const n = getDimensionSize(X, 2);
+  const n = X[0].length;
   for (let i = 0; i < n; i++) {
 
     let featureVector = math.eval(`X[:, ${i + 1}]`, {
@@ -95,7 +93,7 @@ function featureNormalize(X) {
 }
 
 function gradientDescentMulti(X, y, theta, ALPHA, ITERATIONS) {
-  const m = getDimensionSize(y, 1);
+  const m = y.length;
 
   for (let i = 0; i < ITERATIONS; i++) {
     theta = math.eval(`theta - ALPHA / m * ((X * theta - y)' * X)'`, {
